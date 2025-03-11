@@ -1,0 +1,47 @@
+{
+    "comment1": "Livox MID-360 configuration based on manufacturer-provided scan mode and specifications",
+    "class": "sensor",
+    "type": "lidar",
+    "name": "Livox MID-360 10Hz",
+    "driveWorksId": "GENERIC",
+    "profile": {
+        "scanType": "rotary",
+        "intensityProcessing": "normalization",
+        "rotationDirection": "CW",
+        "rayType": "IDEALIZED",
+        "nearRangeM": 0.3,
+        "farRangeM": 70.0,
+        "startAzimuthDeg": 0.0,
+        "endAzimuthDeg": 360.0,
+        "upElevationDeg": 52.0,
+        "downElevationDeg": -7.0,
+        "rangeResolutionM": 0.001,
+        "rangeAccuracyM": 0.05,
+        "avgPowerW": 0.002,
+        "minReflectance": 0.1,
+        "minReflectanceRange": 40.0,
+        "wavelengthNm": 905.0,
+        "pulseTimeNs": 10,
+        "azimuthErrorMean": 0.0,
+        "azimuthErrorStd": 0.02,
+        "elevationErrorMean": 0.0,
+        "elevationErrorStd": 0.02,
+        "maxReturns": 2,
+        "scanRateBaseHz": 10.0,
+        "reportRateBaseHz": 2769, 
+        "comment18":"reportRateBaseHz is calculated as 10 Hz * (360 deg / 1.3 deg) as livox behaves like a 32 layer lidar at 0.1s interation",
+        "numberOfEmitters": 32,
+        "emitterStateCount": 1,
+        "emitterStates": [
+            {
+                "comment19" : "beam_azimuth_angles from get_beam_intrinsics",
+                "azimuthDeg": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ],
+                "comment20" : "beam_altitude_angles from get_beam_intrinsics",
+                "elevationDeg": [-7.0, -5.1, -3.19, -1.29, 0.61, 2.52, 4.42, 6.32, 8.23, 10.13, 12.03, 13.94, 15.84, 17.74, 19.65, 21.55, 23.45, 25.35, 27.26, 29.16, 31.06, 32.97, 34.87, 36.77, 38.68, 40.58, 42.48, 44.39, 46.29, 48.19, 50.1, 52.0],
+                "fireTimeNs": [368, 1880, 3392, 4904, 6416, 7928, 9440, 10952, 12464, 13976, 15488, 17000, 18512, 20024, 21536, 23048, 24560, 26072, 27584, 29096, 30608, 32120, 33632, 35144, 36656, 38168, 39680, 41192, 42704, 44216, 45728, 47240]
+            }
+        ],
+        "intensityMappingType": "LINEAR"
+    }
+}
+
