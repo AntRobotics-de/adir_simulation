@@ -10,7 +10,7 @@ This repository uses NVIDIA's Isaac Sim for simulating the Adir robot.
 
 #### Steps to Login to Docker at nvcr.io
 1. Create an NGC API Key:
-   - Go to the NGC website.
+   - Go to the [NGC website](https://catalog.ngc.nvidia.com).
    - Log in with your NGC account.
    - Navigate to the "Setup" page.
    - Click on "Get API Key" and generate a new key.
