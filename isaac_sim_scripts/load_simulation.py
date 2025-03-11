@@ -1,15 +1,30 @@
 import argparse
-
 import carb
 import os
 from isaacsim import SimulationApp
+import shutil
+import glob
 
+def copy_lidar_config():
+    user = os.environ.get("USER")
+    isaac_sim_home_dir = os.environ.get("ISAAC_SIM_HOME_DIR", f"/home/{user}/.local/share/ov/pkg/isaac-sim-4.2.0")
+    isaac_sim_lidar_configs_dir = os.path.join(isaac_sim_home_dir, "exts", "omni.isaac.sensor", "data", "lidar_configs")
+    local_lidar_configs_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "lidar_configs"))
+    
+    print(f"Copying lidar configs from {local_lidar_configs_dir} to {isaac_sim_lidar_configs_dir}")
+    for file in glob.glob(os.path.join(local_lidar_configs_dir, "*.*")):
+        shutil.copy2(
+            file,
+            isaac_sim_lidar_configs_dir,
+        )
+    
 dir_root_path = dir_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "..")
 parser = argparse.ArgumentParser(description="Load Isaac Sim with a specific scene")
 parser.add_argument("-f", "--file", required=True, type=str, help="Path to the .usd file to load")
 parser.add_argument("--headless", action=argparse.BooleanOptionalAction, help="Headless mode for Isaac Sim", default=True)
 args, unknown = parser.parse_known_args()
-file_path = os.path.join(dir_root_path, "usd", "world", args.file)
+file_path = os.path.abspath(os.path.join(dir_root_path, "usd", "world", args.file))
+copy_lidar_config()
 print("Loading Isaac Sim with file: ", file_path)
 print("Headless mode: ", args.headless)
 
